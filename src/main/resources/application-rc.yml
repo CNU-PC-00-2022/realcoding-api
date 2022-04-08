@@ -1,0 +1,22 @@
+server:
+  port: 8080
+  address: 'localhost'
+
+h2-console:
+  port: 8081
+
+spring:
+  h2
+  datasource:
+
+    initialization-mode: always
+    url: r2dbc:h2:mem:///testdb;MODE=MySQL;
+    username: sa
+    password:
+
+springdoc:
+  swagger-ui:
+    path:/doc/swagger-ui-custom.html
+logging:
+  level:
+    org.springframework.r2dbc: DEBUG

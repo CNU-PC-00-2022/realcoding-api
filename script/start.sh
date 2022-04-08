@@ -1,0 +1,1 @@
+java -jar ./build/libs/realcoding-api-0.0.1-SNAPSHOT --Dspring.active.profiles=live
