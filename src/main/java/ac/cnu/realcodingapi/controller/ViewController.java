@@ -12,7 +12,7 @@ public class ViewController {
     @GetMapping("/index")
     public String index(Model model) {
         log.info("view group controller입니다. ");
-        model.addAttribute("group", 10);
+        model.addAttribute("group", 3);
         return "index";
     }
 }
