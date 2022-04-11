@@ -27,6 +27,14 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    
+    // docs
+    // https://springdoc.org/
+    implementation 'org.springdoc:springdoc-openapi-ui:1.6.7'
+    implementation 'org.springdoc:springdoc-openapi-webmvc-core:1.6.7'
+    // actuator
+    // https://www.baeldung.com/spring-boot-actuators
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
 }
 
 tasks.named('test') {
