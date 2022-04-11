@@ -12,7 +12,6 @@ import java.util.List;
 
 import static ac.cnu.realcodingapi.dto.UserGroupResponseMessage.*;
 
-@Slf4j
 @RestController
 @RequestMapping("/api")
 @RequiredArgsConstructor
@@ -26,21 +25,18 @@ public class UserGroupController {
 
     @PostMapping("/usergroup")
     public CommonResponse<UserGroupResponse> saveNewUserGroup(@RequestBody UserGroupRequest request) {
-        log.info("Controller layer 시작");
         UserGroupResponse response = userGroupService.saveUserGroup(request);
         return CommonResponse.from(response, UPLOAD_USER_GROUP.getMessage());
     }
 
     @GetMapping("/usergroup/{usergroupId}")
     public CommonResponse<UserGroupResponse> getUserGroup(@PathVariable Long usergroupId) {
-        log.info("Controller layer 시작");
         UserGroupResponse response = userGroupService.getUserGroup(usergroupId);
         return CommonResponse.from(response, FIND_USER_GROUP.getMessage());
     }
 
     @GetMapping("/usergroup")
     public CommonResponse<List<UserGroupResponse>> getUserGroups() {
-        log.info("Controller layer 시작");
         List<UserGroupResponse> userGroups = userGroupService.getUserGroups();
         return CommonResponse.from(userGroups, FIND_USER_GROUPS.getMessage());
     }
