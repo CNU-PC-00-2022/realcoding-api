@@ -15,4 +15,9 @@ public class UserGroupDomainService {
     public UserGroup saveUserGroup(UserGroup userGroup) {
         return userGroupRepository.save(userGroup);
     }
+
+    public UserGroup getUserGroup(long id) {
+        return userGroupRepository.findById(id)
+                .orElseGet(() -> new UserGroup("no group"));
+    }
 }

@@ -16,4 +16,9 @@ public class UserGroupService {
         UserGroup userGroup = userGroupDomainService.saveUserGroup(request.toUserGroup());
         return UserGroupResponse.create(userGroup);
     }
+
+    public UserGroupResponse getUserGroup(Long id) {
+        UserGroup userGroup = userGroupDomainService.getUserGroup(id);
+        return UserGroupResponse.create(userGroup);
+    }
 }
