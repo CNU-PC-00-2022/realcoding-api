@@ -16,7 +16,7 @@ public class UserGroupDomainService {
 
     @Transactional(readOnly = true)
     public UserGroup getUserGroup(long id) {
-        log.info("도메인입니다.");
+        log.info("Info : UserGroupDomainService입니다.");
         return userGroupRepository.findById(id)
                 .orElseGet(() -> new UserGroup("no group"));
     }

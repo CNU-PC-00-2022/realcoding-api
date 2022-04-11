@@ -18,7 +18,7 @@ public class UserGroupService {
     }
 
     public UserGroupResponse getUserGroup(Long id) {
-        log.info("서비스입니다.");
+        log.info("Info : UserGroupService입니다.");
         UserGroup userGroup = userGroupDomainService.getUserGroup(id);
 
         return UserGroupResponse.create(userGroup);
