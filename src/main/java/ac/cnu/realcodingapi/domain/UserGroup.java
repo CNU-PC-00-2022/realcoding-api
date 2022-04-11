@@ -12,8 +12,6 @@ public class UserGroup {
 
 
     public UserGroup() {
-        this.id = 7L;
-        this.name = "GroupName : Team 7";
     }
 
     public UserGroup(String groupName) {

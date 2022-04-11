@@ -20,6 +20,7 @@ public class UserGroupController {
 
     @GetMapping("/api")
     public String index() {
+        log.info("Info : UserGroupController입니다.");
         return "index";
     }
 
