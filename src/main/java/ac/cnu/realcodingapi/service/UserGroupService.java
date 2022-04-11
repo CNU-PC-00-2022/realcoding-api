@@ -7,6 +7,9 @@ import ac.cnu.realcodingapi.dto.UserGroupResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 @RequiredArgsConstructor
 public class UserGroupService {
@@ -20,5 +23,11 @@ public class UserGroupService {
     public UserGroupResponse getUserGroup(Long id) {
         UserGroup userGroup = userGroupDomainService.getUserGroup(id);
         return UserGroupResponse.create(userGroup);
+    }
+
+    public List<UserGroupResponse> getUserGroups() {
+        return userGroupDomainService.getUserGroups().stream()
+                .map(UserGroupResponse::create)
+                .collect(Collectors.toList());
     }
 }

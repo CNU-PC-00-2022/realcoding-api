@@ -4,6 +4,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
@@ -19,5 +21,9 @@ public class UserGroupDomainService {
     public UserGroup getUserGroup(long id) {
         return userGroupRepository.findById(id)
                 .orElseGet(() -> new UserGroup("no group"));
+    }
+
+    public List<UserGroup> getUserGroups() {
+        return userGroupRepository.findAll();
     }
 }
