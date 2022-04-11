@@ -15,7 +15,7 @@ public class RealcodingApiApplication {
         for (String arg : args) {
             log.info("옵션 확인: , {}", arg);
         }
-        SpringApplication.run(RealcodingApiApplication.class, args);
+        SpringApplication.run(RealcodingApiApplication.class, args); // 이 한 줄로 실행되는 것
         log.info("웹 서버 실행 완료");
     }
 
