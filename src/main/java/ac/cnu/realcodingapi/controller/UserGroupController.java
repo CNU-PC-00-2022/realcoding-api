@@ -26,7 +26,7 @@ public class UserGroupController {
 
     @GetMapping("/api/usergroup")
     public ResponseEntity<UserGroupResponse> getUserGroup(@RequestParam Long id) {
-        log.info("This is usergroup id.");
+        log.info("This is usergroup Controller.");
         return ResponseEntity.ok().body(userGroupService.getUserGroup(id));
     }
 }
