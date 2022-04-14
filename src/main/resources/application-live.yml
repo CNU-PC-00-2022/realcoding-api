@@ -1,2 +1,22 @@
 server:
   port: 8080
+
+spring:
+  datasource:
+    url: jdbc:mysql://125.6.39.159:8806/realcoding2022?serverTimezone=UTC&characterEncoding=UTF-8
+    driverClassName: com.mysql.cj.jdbc.Driver
+    username: realcoding2022
+    password: realcoding2022
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+
+
+    show-sql: true
+    database: mysql
+
+logging:
+  level:
+    org.hibernate.type.descriptor.sql: info

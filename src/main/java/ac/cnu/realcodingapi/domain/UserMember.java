@@ -5,14 +5,17 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 
 @Getter
-@EqualsAndHashCode
 @Entity
 public class UserMember {
     @Id
     String studentId;
+
+    Long userGroupId;
     String name;
     String role;
 

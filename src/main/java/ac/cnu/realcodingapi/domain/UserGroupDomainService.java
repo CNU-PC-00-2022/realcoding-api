@@ -30,7 +30,7 @@ public class UserGroupDomainService {
                 .stream()
                 .map(UserMember::new)
                 // .map(member -> new UserMember(member))
-                .collect(Collectors.toList()));
+                .collect(Collectors.toSet()));
 
         return userGroupRepository.save(userGroup);
     }
