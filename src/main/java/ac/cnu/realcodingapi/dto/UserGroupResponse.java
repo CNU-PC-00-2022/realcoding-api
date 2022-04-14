@@ -8,6 +8,7 @@ import java.io.Serializable;
 @Getter
 public class UserGroupResponse implements Serializable {
     String name;
+    Long team;
 
     public UserGroupResponse() {
 
