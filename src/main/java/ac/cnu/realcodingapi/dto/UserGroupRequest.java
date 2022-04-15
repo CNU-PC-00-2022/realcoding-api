@@ -6,7 +6,8 @@ import java.util.List;
 
 @Getter
 public class UserGroupRequest {
-    long id;
-    String name;
-    List<UserMemberDto> members;
+    private long id;
+    private String name;
+    private List<UserMemberDto> members;
+
 }

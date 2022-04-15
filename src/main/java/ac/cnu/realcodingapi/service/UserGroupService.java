@@ -1,10 +1,12 @@
 package ac.cnu.realcodingapi.service;
 
-import ac.cnu.realcodingapi.domain.UserGroup;
-import ac.cnu.realcodingapi.domain.UserGroupDomainService;
+import ac.cnu.realcodingapi.domain.usergroup.UserGroup;
+import ac.cnu.realcodingapi.domain.usergroup.UserGroupDomainService;
+import ac.cnu.realcodingapi.dto.UserGroupDto;
 import ac.cnu.realcodingapi.dto.UserGroupRequest;
 import ac.cnu.realcodingapi.dto.UserGroupResponse;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class UserGroupService {
@@ -16,12 +18,15 @@ public class UserGroupService {
     }
 
     public UserGroupResponse getUserGroup(Long id) {
-        UserGroup userGroup = userGroupDomainService.getUserGroup(id);
+        UserGroupDto userGroup = userGroupDomainService.getUserGroup(id);
 
         return UserGroupResponse.create(userGroup);
     }
 
+    @Transactional
     public UserGroupResponse saveUserGroup(UserGroupRequest userGroupRequest) {
-        return UserGroupResponse.create(userGroupDomainService.saveUserGroup(userGroupRequest));
+        UserGroupDto userGroupDto = userGroupDomainService.saveUserGroup(userGroupRequest);
+
+        return UserGroupResponse.create(userGroupDto);
     }
 }

@@ -26,7 +26,7 @@ public class UserGroupController {
     }
 
     @GetMapping("/api/usergroup")
-    public ResponseEntity<UserGroupResponse> getUserGroup(@RequestParam Long id) {
+    public ResponseEntity<UserGroupResponse> getUserGroup(@RequestParam(defaultValue = "0") Long id) {
         return ResponseEntity.ok().body(userGroupService.getUserGroup(id));
     }
 

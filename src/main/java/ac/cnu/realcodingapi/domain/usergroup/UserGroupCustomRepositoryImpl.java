@@ -1,4 +1,4 @@
-package ac.cnu.realcodingapi.domain;
+package ac.cnu.realcodingapi.domain.usergroup;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -7,8 +7,10 @@ import javax.persistence.EntityManager;
 import java.util.Optional;
 
 
+@RequiredArgsConstructor
+@Repository
 public class UserGroupCustomRepositoryImpl implements UserGroupCustomRepository {
-    EntityManager em;
+    private final EntityManager em;
 
     @Override
     public Optional<UserGroup> findByIdCustom(Long id) {

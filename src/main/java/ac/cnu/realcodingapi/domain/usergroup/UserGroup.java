@@ -1,5 +1,6 @@
-package ac.cnu.realcodingapi.domain;
+package ac.cnu.realcodingapi.domain.usergroup;
 
+import ac.cnu.realcodingapi.domain.member.UserMember;
 import lombok.Getter;
 import org.hibernate.Hibernate;
 
@@ -14,12 +15,10 @@ import java.util.Set;
 @Entity
 public class UserGroup {
     @Id
-    Long id;
-    String name;
+    private Long id;
+    private String name;
+    private String ip;
 
-    @OneToMany
-    @JoinColumn(name = "userGroupId", referencedColumnName = "id")
-    Set<UserMember> members = new HashSet<>();
 
     public UserGroup() {
 
@@ -32,7 +31,6 @@ public class UserGroup {
     public UserGroup (Long id, String name) {
         this.id = id;
         this.name = name;
-        this.members = new HashSet<>();
     }
 
 
