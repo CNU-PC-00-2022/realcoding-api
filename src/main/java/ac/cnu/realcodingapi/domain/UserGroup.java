@@ -21,6 +21,7 @@ public class UserGroup {
 
 
     public String getName() {
+        log.info("UserGroup 실행됨.");
         return this.name;
     }
 }
