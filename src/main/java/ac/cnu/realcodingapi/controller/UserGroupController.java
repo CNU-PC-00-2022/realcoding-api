@@ -21,14 +21,14 @@ public class UserGroupController {
 
     @GetMapping("/api")
     public String index() {
-        log.info("UserGroupController 실행됨.");
+        log.info("Excuted UserGroupController.");
         return "index";
     }
 
 
     @GetMapping("/api/usergroup")
     public ResponseEntity<UserGroupResponse> getUserGroup(@RequestParam Long id) {
-        log.info("UserGroupController 실행됨.");
+        log.info("Excuted UserGroupController.");
         return ResponseEntity.ok().body(userGroupService.getUserGroup(id));
     }
 }
