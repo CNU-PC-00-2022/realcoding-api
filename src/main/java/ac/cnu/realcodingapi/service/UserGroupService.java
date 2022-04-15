@@ -18,9 +18,9 @@ public class UserGroupService {
     }
 
     public UserGroupResponse getUserGroup(Long id) {
-        UserGroupDto userGroup = userGroupDomainService.getUserGroup(id);
+        UserGroupDto userGroupDto = userGroupDomainService.getUserGroup(id);
 
-        return UserGroupResponse.create(userGroup);
+        return UserGroupResponse.create(userGroupDto);
     }
 
     @Transactional

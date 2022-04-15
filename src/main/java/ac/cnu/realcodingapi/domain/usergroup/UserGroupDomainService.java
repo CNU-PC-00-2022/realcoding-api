@@ -35,6 +35,7 @@ public class UserGroupDomainService {
     public UserGroupDto saveUserGroup(UserGroupRequest userGroupRequest) {
         UserGroup userGroup = userGroupRepository.findById(userGroupRequest.getId())
                 .orElseGet(() -> new UserGroup(userGroupRequest.getId(), userGroupRequest.getName()));
+        long userGroupId = userGroup.getId();
         Set<UserMember> userMemberList = UserMemberDto.toMemberEntities(userGroupRequest);
         userMemberRepository.deleteAllByUserGroupId(userGroupRequest.getId());
         return UserGroupDto.create(

@@ -16,8 +16,8 @@ public class UserMemberDto implements Serializable {
     private long groupId;
     private String role; // TODO: enum 으로 변경
 
-    public static UserMember toEntity(UserMemberDto m) {
-        return new UserMember(m.getStudentId(), m.getName(), m.getGroupId(), m.getRole());
+    public static UserMember toEntity(UserMemberDto m, long userGroupId) {
+        return new UserMember(m.getStudentId(), m.getName(), userGroupId, m.getRole());
     }
 
     public static UserMemberDto create(UserMember m) {
@@ -25,9 +25,10 @@ public class UserMemberDto implements Serializable {
     }
 
     public static Set<UserMember> toMemberEntities(UserGroupRequest userGroupRequest) {
+
         return userGroupRequest.getMembers()
                 .stream()
-                .map(UserMemberDto::toEntity)
+                .map(userMember -> UserMemberDto.toEntity(userMember, userGroupRequest.getId()))
 //                .peek(System.out::println)
                 .collect(Collectors.toSet());
     }
