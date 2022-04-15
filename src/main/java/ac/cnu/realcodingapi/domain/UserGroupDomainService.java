@@ -1,0 +1,4 @@
+package ac.cnu.realcodingapi.domain;
+
+public class UserGroupService {
+}
