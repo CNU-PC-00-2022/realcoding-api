@@ -28,6 +28,7 @@ public class UserMemberDto implements Serializable {
         return userGroupRequest.getMembers()
                 .stream()
                 .map(UserMemberDto::toEntity)
+//                .peek(System.out::println)
                 .collect(Collectors.toSet());
     }
 }
