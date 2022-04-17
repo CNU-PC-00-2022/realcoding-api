@@ -4,27 +4,3 @@ server:
 logging:
   config: classpath:logback.xml
 
-springdoc:
-  swagger-ui:
-    path: /swagger-ui.html
-  api-docs:
-    path: /api-docs
-
-management:
-  endpoint:
-    info:
-      enabled: true
-#    health:
-#      group:
-#        custom:
-#          show-components: always
-#          show-details: always
-#          status:
-#            http-mapping:
-#              up: 207
-#          include: diskSpace,ping
-
-  endpoints:
-    web:
-      exposure:
-        include: '*'
