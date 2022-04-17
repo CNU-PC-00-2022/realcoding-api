@@ -3,13 +3,17 @@ package ac.cnu.realcodingapi.dto;
 import ac.cnu.realcodingapi.domain.member.UserMember;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.ToString;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.Serializable;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+@Slf4j
 @Getter
 @AllArgsConstructor
+@ToString
 public class UserMemberDto implements Serializable {
     private String name;
     private String studentId;
@@ -25,11 +29,13 @@ public class UserMemberDto implements Serializable {
     }
 
     public static Set<UserMember> toMemberEntities(UserGroupRequest userGroupRequest) {
-
+        final long teamId = userGroupRequest.getId();
         return userGroupRequest.getMembers()
                 .stream()
-                .map(userMember -> UserMemberDto.toEntity(userMember, userGroupRequest.getId()))
-//                .peek(System.out::println)
+                .map(userMember -> UserMemberDto.toEntity(userMember, teamId))
+//                .peek(p -> {
+//                    log.info(p.toString());
+//                })
                 .collect(Collectors.toSet());
     }
 }

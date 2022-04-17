@@ -3,6 +3,7 @@ package ac.cnu.realcodingapi.controller;
 import ac.cnu.realcodingapi.dto.UserGroupRequest;
 import ac.cnu.realcodingapi.dto.UserGroupResponse;
 import ac.cnu.realcodingapi.service.UserGroupService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,6 +17,7 @@ public class UserGroupController {
 
     private final UserGroupService userGroupService;
 
+    @Autowired
     public UserGroupController(UserGroupService userGroupService) {
         this.userGroupService = userGroupService;
     }
@@ -31,8 +33,8 @@ public class UserGroupController {
     }
 
     @PostMapping({"/api/usergroup", "/api/usergroup/add"})
-    public ResponseEntity<UserGroupResponse> saveUserGroup(@RequestBody UserGroupRequest userGroupReqeust) {
-        return ResponseEntity.ok().body(userGroupService.saveUserGroup(userGroupReqeust));
+    public ResponseEntity<UserGroupResponse> saveUserGroup(@RequestBody UserGroupRequest userGroupRequest) {
+        return ResponseEntity.ok().body(userGroupService.saveUserGroup(userGroupRequest));
     }
 
 }
