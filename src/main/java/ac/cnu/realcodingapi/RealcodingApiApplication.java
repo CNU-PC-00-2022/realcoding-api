@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Bean;
 public class RealcodingApiApplication {
 
     public static void main(String[] args) {
-        log.info("여기가 시작점이야");
+        log.info("시작점");
         for (String arg : args) {
             log.info("옵션 확인: , {}", arg);
         }
@@ -21,9 +21,7 @@ public class RealcodingApiApplication {
 
     @Bean
     public CommandLineRunner demo() {
-        return (args) -> {
-            log.info("커멘드 실행");
-        };
+        return (args) -> log.info("커멘드 실행");
     }
 
 }
