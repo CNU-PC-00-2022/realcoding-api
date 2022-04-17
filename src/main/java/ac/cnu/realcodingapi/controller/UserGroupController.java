@@ -1,5 +1,6 @@
 package ac.cnu.realcodingapi.controller;
 
+import ac.cnu.realcodingapi.dto.UserGroupAllResponse;
 import ac.cnu.realcodingapi.dto.UserGroupRequest;
 import ac.cnu.realcodingapi.dto.UserGroupResponse;
 import ac.cnu.realcodingapi.service.UserGroupService;
@@ -28,13 +29,23 @@ public class UserGroupController {
     }
 
     @GetMapping("/api/usergroup")
-    public ResponseEntity<UserGroupResponse> getUserGroup(@RequestParam(defaultValue = "0") Long id) {
+    public ResponseEntity<UserGroupResponse> getUserGroup(@RequestParam(required = false, defaultValue = "0") Long id) {
         return ResponseEntity.ok().body(userGroupService.getUserGroup(id));
     }
 
     @PostMapping({"/api/usergroup", "/api/usergroup/add"})
     public ResponseEntity<UserGroupResponse> saveUserGroup(@RequestBody UserGroupRequest userGroupRequest) {
         return ResponseEntity.ok().body(userGroupService.saveUserGroup(userGroupRequest));
+    }
+
+    @GetMapping("/api/usergroup/outside")
+    public ResponseEntity<UserGroupResponse> retrieveUserGroup(@RequestParam(required = false, defaultValue = "-1") Long id) {
+        return ResponseEntity.ok().body(userGroupService.getUserGroupFromServer(id));
+    }
+
+    @GetMapping("/api/usergroup/all/outside")
+    public ResponseEntity<UserGroupAllResponse> getAllUserGroup() {
+        return ResponseEntity.ok().body(userGroupService.getAllUserGroupFromServer());
     }
 
 }

@@ -21,3 +21,8 @@ spring:
       path: /h2-console
       settings:
         web-allow-others: true
+
+extern:
+  team:
+    url: http://125.6.39.159:8080/api/usergroup
+

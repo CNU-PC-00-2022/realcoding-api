@@ -3,6 +3,7 @@ package ac.cnu.realcodingapi.dto;
 import ac.cnu.realcodingapi.domain.member.UserMember;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
 
@@ -12,6 +13,7 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @Getter
+@NoArgsConstructor
 @AllArgsConstructor
 @ToString
 public class UserMemberDto implements Serializable {

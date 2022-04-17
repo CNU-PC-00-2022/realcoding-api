@@ -15,8 +15,10 @@ spring:
     hibernate:
       ddl-auto: validate
 
-
-
 logging:
   level:
     org.hibernate.type.descriptor.sql: info
+
+extern:
+  team:
+    url: http://125.6.39.159:8080/api/usergroup

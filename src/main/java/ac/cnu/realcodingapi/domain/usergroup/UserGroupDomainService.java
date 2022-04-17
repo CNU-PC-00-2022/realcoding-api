@@ -23,6 +23,7 @@ public class UserGroupDomainService {
         this.userMemberRepository = userMemberRepository;
     }
 
+
     @Transactional(readOnly = true)
     public UserGroupDto getUserGroup(long id) {
         UserGroup userGroup = userGroupRepository.findById(id)
@@ -35,7 +36,6 @@ public class UserGroupDomainService {
     public UserGroupDto saveUserGroup(UserGroupRequest userGroupRequest) {
         UserGroup userGroup = userGroupRepository.findById(userGroupRequest.getId())
                 .orElseGet(() -> new UserGroup(userGroupRequest.getId(), userGroupRequest.getName()));
-        long userGroupId = userGroup.getId();
         Set<UserMember> userMemberList = UserMemberDto.toMemberEntities(userGroupRequest);
         userMemberRepository.deleteAllByUserGroupId(userGroupRequest.getId());
         return UserGroupDto.create(
