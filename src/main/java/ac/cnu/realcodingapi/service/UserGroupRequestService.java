@@ -7,6 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.ArrayList;
+
 @RequiredArgsConstructor
 @Service
 public class UserGroupRequestService {
@@ -15,9 +17,11 @@ public class UserGroupRequestService {
 
     public UserGroupResponse getTeamMember(Long id){
         String url = externInfoConfig.getUrl() + "?id=" + id;
-        ResponseEntity<UserGroupResponse> response = restTemplate.getForEntity(url, UserGroupResponse.class);
-//        if (!response.getStatusCode().is2xxSuccessful()) {
-//        }
+        ResponseEntity<UserGroupResponse> response
+                = restTemplate.getForEntity(url, UserGroupResponse.class);
+        if (!response.getStatusCode().is2xxSuccessful()) {
+            return new UserGroupResponse(id, "no group", new ArrayList<>());
+        }
         return response.getBody();
     }
 }
